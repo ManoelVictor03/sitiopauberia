@@ -1,0 +1,249 @@
+/* ======================================================
+   CSS FINAL - TEMA FEIRA ORGÂNICA v3
+   Inclui TODOS os efeitos: Partículas, Logo, Botões e Digitação
+   ====================================================== */
+
+/* Importando fontes com personalidade */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Amatic+SC:wght@700&display=swap");
+
+/* Reset básico e estilos gerais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #3d3d3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #1a3b2a; /* Cor de fundo sólida caso a imagem falhe */
+  background-image: linear-gradient(
+      rgba(34, 87, 51, 0.7),
+      rgba(34, 87, 51, 0.7)
+    ),
+    url("../image/fundo-hortalicas.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* ======================================================
+   NOVO: EFEITOS DE FUNDO ANIMADO (Partículas Flutuantes)
+   ====================================================== */
+.background-effects {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Fica atrás do container mas acima do body */
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  bottom: -20px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: floatUp linear infinite;
+  pointer-events: none;
+}
+
+/* Container principal */
+.container {
+  position: relative; /* Necessário para ficar na frente dos efeitos */
+  z-index: 1;
+  width: 100%;
+  max-width: 600px;
+  background: #f7f6f1;
+  border: 2px solid #d7c7b4;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* Cabeçalho */
+header {
+  margin-bottom: 30px;
+}
+
+.profile-picture {
+  width: 160px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #5a8b48;
+  margin-bottom: 15px;
+  animation: rotateAndScale 3s ease-in-out infinite alternate;
+}
+
+h1 {
+  font-family: "Amatic SC", cursive;
+  font-size: 4rem;
+  color: #2e5633;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+header p {
+  font-size: 1.1rem;
+  color: #6b6b6b;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Botões */
+.link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #5a8b48;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 18px;
+  margin: 16px 0;
+  border-radius: 50px;
+  border: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease-out forwards, pulse-effect 2.5s infinite ease-out;
+  animation-play-state: running, paused;
+}
+
+.link-button:hover {
+  transform: scale(1.05);
+  background-color: #6faa5b;
+  animation-play-state: running, running;
+}
+
+/* Seções e Rodapé */
+.about-us-section {
+  margin-top: 40px;
+  padding-top: 25px;
+  border-top: 1px solid #d7c7b4;
+}
+
+.about-us-section h2 {
+  font-family: "Amatic SC", cursive;
+  font-size: 2.8rem;
+  color: #2e5633;
+  margin-bottom: 10px;
+}
+
+.about-us-section p {
+  color: #6b6b6b;
+  line-height: 1.7;
+}
+
+footer {
+  margin-top: 30px;
+}
+
+.social-icons a {
+  color: #8b4513;
+  font-size: 1.6rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+  color: #5a8b48;
+  transform: scale(1.1);
+}
+
+footer p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+}
+
+/* Cursor para Efeito Máquina de Escrever */
+.typing-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background-color: #3d3d3d;
+  margin-left: 4px;
+  animation: blink 0.7s infinite;
+}
+
+/* ======================================================
+   DEFINIÇÃO DE TODAS AS ANIMAÇÕES (@keyframes)
+   ====================================================== */
+
+/* Animação das partículas subindo */
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+/* Animação da logo */
+@keyframes rotateAndScale {
+  0% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    transform: scale(1.03) rotate(2deg);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Animação de entrada dos botões */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    animation-play-state: running, running;
+  }
+}
+
+/* Animação de "frescor" (pulsante) */
+@keyframes pulse-effect {
+  0% {
+    box-shadow: 0 0 0 0 rgba(90, 139, 72, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(90, 139, 72, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(90, 139, 72, 0);
+  }
+}
+
+/* Animação do cursor piscando */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Layout Adaptável (Responsividade) */
+@media (max-width: 600px) {
+  .container {
+    padding: 30px 25px;
+  }
+  h1 {
+    font-size: 3.5rem;
+  }
+  .profile-picture {
+    width: 120px;
+    height: 120px;
+  }
+}
